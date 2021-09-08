@@ -1,0 +1,21 @@
+#gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gallery__img {
+  display: block;
+  width: 300px;
+  margin: 3px;
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+.gallery__img:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 2px rgba(34, 60, 80, 0.71);
+}
