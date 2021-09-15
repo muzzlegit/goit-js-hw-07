@@ -6,8 +6,7 @@ const elements = {
 elements.input.addEventListener('input', onInpuText);
 
 function onInpuText(event) {
-  elements.label.textContent = event.currentTarget.value;
-  if (event.currentTarget.value === '') {
-    elements.label.textContent = 'незнакомец';
-  }
+  event.currentTarget.value === '' ?
+    elements.label.textContent = 'незнакомец' :
+    elements.label.textContent = event.currentTarget.value;
 }
