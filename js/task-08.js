@@ -1,9 +1,10 @@
 const createBtnEl = document.querySelector('#controls button[data-action="render"]');
 const removeBtnEl = document.querySelector('#controls button[data-action="destroy"]');
-const elements = document.querySelector('#controls');
+const inputEl = document.querySelector('#controls input');
 const containerEl = document.querySelector('#boxes');
 
 let amount;
+const elements = [];
 
 function createBoxes(amount) {
   for (let i = 0; i < amount; i +=1) {  
@@ -11,14 +12,15 @@ function createBoxes(amount) {
     divEl.style.width = `${30+10*i}px`;
     divEl.style.height =`${30+10*i}px`;
     divEl.style.backgroundColor = `rgb(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)} )`;
-    containerEl.appendChild(divEl);
+    elements.push(divEl);
   }
+  containerEl.append(...elements);
 }
 function destroyBoxes() {
   containerEl.innerHTML = '';
  }
 
-elements.children[0].addEventListener('input', onChangeInput);
+inputEl.addEventListener('input', onChangeInput);
 createBtnEl.addEventListener('click', onCreateBtnClick);
 removeBtnEl.addEventListener('click', onRemoveBtnClick);
 
