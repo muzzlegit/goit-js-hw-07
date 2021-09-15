@@ -4,19 +4,22 @@ const inputEl = document.querySelector('#controls input');
 const containerEl = document.querySelector('#boxes');
 
 let amount;
-const elements = [];
+let elements = [];
 
 function createBoxes(amount) {
-  for (let i = 0; i < amount; i +=1) {  
+  const boxSize = 30;
+  for (let i = 0; i < amount; i += 1) {   
     const divEl = document.createElement('div');
-    divEl.style.width = `${30+10*i}px`;
-    divEl.style.height =`${30+10*i}px`;
+    divEl.style.width = `${boxSize+10*i}px`;
+    divEl.style.height =`${boxSize+10*i}px`;
     divEl.style.backgroundColor = `rgb(${Math.round(Math.random()*255)},${Math.round(Math.random()*255)},${Math.round(Math.random()*255)} )`;
     elements.push(divEl);
   }
   containerEl.append(...elements);
+
 }
 function destroyBoxes() {
+  elements = [];
   containerEl.innerHTML = '';
  }
 
@@ -28,8 +31,11 @@ function onChangeInput(event) {
   amount = event.currentTarget.value;
 }
 function onCreateBtnClick() {
- createBoxes(amount);
+  createBoxes(amount);
+
 }
 function onRemoveBtnClick() {
- destroyBoxes();
+  destroyBoxes();
+
+  console.log(elements);
 }
