@@ -34,8 +34,7 @@ function onCreateBtnClick() {
   createBoxes(amount);
 
 }
-function onRemoveBtnClick() {
+function onRemoveBtnClick(e) {
   destroyBoxes();
-
-  console.log(elements);
+  inputEl.value = '';
 }
